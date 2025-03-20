@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/caro.css">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tutor game cờ caro bằng JS</title>
+</head>
+<body>
+<div>
+    <div class="options" style="margin-top: 30px">
+        <label for="list-row"></label><select id="list-row" class="hide-option option">
+        <option selected="selected" disabled="disabled" value="">Chọn số lượng hàng</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+    </div>
+
+    <div class="options" style="margin-top: 30px">
+        <label for="list-column"></label><select id="list-column" class="hide-option option">
+        <option selected="selected" disabled="disabled" value="">Chọn số lượng cột</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+    </select>
+    </div>
+</div>
+
+<div class="button" id="button" onclick="handleLetGo()">Chơi</div>
+</body>
+</html>
+
+<script>
+    function handleLetGo() {
+        let rows = document.getElementById("list-row").value;
+        let columns = document.getElementById("list-column").value;
+
+        if (rows === "" || columns === "") {
+            alert("Vui lòng chọn kiểu chơi");
+            return;
+        }
+
+        window.location.href = "/caro/caro.html?rows="+rows+"&columns="+columns;
+    }
+</script>
