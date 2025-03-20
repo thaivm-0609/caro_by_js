@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor cờ caro</title>
+    <link rel="stylesheet" href="css/caro.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <div>
+        <!-- chọn số hàng -->
+        <div class="options" style="margin-top: 30px;">
+            <label for="list-row"></label>
+            <select id="list-row" class="hide-option option">
+                <option value="" disabled>Chọn số hàng</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        <!-- chọn số cột -->
+        <div class="options" style="margin-top: 30px;">
+            <label for="list-column"></label>
+            <select id="list-column" class="hide-option option">
+                <option value="" disabled>Chọn số cột</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+            </select>
+        </div>
+        <div class="button" id="button" onclick="play()">Chơi</div>
+    </div>
+</body>
+<script>
+    function play() { //khởi tạo hàm play()
+        //B1: lấy giá trị số cột/số hàng mà ng dùng chọn
+        let rows = document.getElementById('list-row').value;
+        let columns = document.getElementById('list-column').value;
+        if (rows == "" || columns == "") {
+            alert("Kích thước bàn cờ không hợp lệ");
+            return;
+        }
+
+        //B2: chuyển trang sang màn hình chơi và truyền giá trị rows/columns lên url
+        window.location.href = `/caro/caro.html?rows=${rows}&columns=${columns}`
+    }
+</script>
+</html>
